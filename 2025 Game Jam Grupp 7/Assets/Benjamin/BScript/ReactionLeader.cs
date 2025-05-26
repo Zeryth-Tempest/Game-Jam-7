@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class ReactionLeader : MonoBehaviour
 {
-    public int ChosenDirection;
+    public int ChosenDirection = 99999999;
+    [SerializeField] GameObject[] DirectionObject;
 
     private void Start()
     {
@@ -14,7 +15,8 @@ public class ReactionLeader : MonoBehaviour
     IEnumerator Choose()
     {
         yield return new WaitForSeconds(Random.Range(1f, 3f));
-        ChosenDirection = Random.Range(1, 5);
+        ChosenDirection = Random.Range(0, 4);
         Debug.Log(ChosenDirection);
+        Instantiate(DirectionObject[ChosenDirection]);
     }
 }

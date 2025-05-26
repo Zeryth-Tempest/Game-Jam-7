@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 public class ReactionDirection : MonoBehaviour
 {
     Vector2 ButtonInput;
-    int ChosenDirection;
+    int ChosenDirection = 999999;
    void OnMove(InputValue InputValue)
    {
         ButtonInput = InputValue.Get<Vector2>();
@@ -14,7 +14,7 @@ public class ReactionDirection : MonoBehaviour
 
     private void Update()
     {
-        if (ChosenDirection == 1)
+        if (ChosenDirection == 0)
         {
             if (ButtonInput == Vector2.left)
             {
@@ -22,10 +22,10 @@ public class ReactionDirection : MonoBehaviour
             }
             else
             {
-                Debug.LogError("Fail");
+                Lose();
             }
         }
-        else if (ChosenDirection == 2)
+        else if (ChosenDirection == 1)
         {
             if (ButtonInput == Vector2.right)
             {
@@ -33,10 +33,10 @@ public class ReactionDirection : MonoBehaviour
             }
             else
             {
-                Debug.LogError("Fail");
+                Lose();
             }
         }
-        else if (ChosenDirection == 3)
+        else if (ChosenDirection == 2)
         {
             if (ButtonInput == Vector2.up)
             {
@@ -44,10 +44,10 @@ public class ReactionDirection : MonoBehaviour
             }
             else
             {
-                Debug.LogError("Fail");
+                Lose();
             }
         }
-        else if (ChosenDirection == 4)
+        else if (ChosenDirection == 3)
         {
             if (ButtonInput == Vector2.down)
             {
@@ -55,13 +55,18 @@ public class ReactionDirection : MonoBehaviour
             }
             else 
             {
-                Debug.LogError("Fail");
+                Lose();
             }
         }
         else if (ButtonInput != new Vector2(0, 0))
         {
-            Debug.LogError("Fail");
+            Lose();
         }
+    }
+
+    void Lose()
+    {
+        Debug.LogError(this.gameObject.name + " lost");
     }
 
 }
