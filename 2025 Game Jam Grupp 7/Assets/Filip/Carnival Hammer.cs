@@ -4,18 +4,20 @@ using UnityEngine.InputSystem;
 
 public class CarnivalHammer : MonoBehaviour
 {
-    private float Charge;
+    private float charge;
+    private float score;
 
     void Start()
     {
-        float Charge = 0f;
+        float charge = 0f;
+        StartCoroutine(Swing(charge));
     }
 
     void FixedUpdate()
     {
-        if (Charge >= 0f)
+        if (charge >= 0f)
         {
-            Charge -= 0.05f;
+            charge -= 0.05f;
         }
 
         Debug.Log("Charge");
@@ -25,14 +27,16 @@ public class CarnivalHammer : MonoBehaviour
     {
         if (value.isPressed)
         {
-            Charge += 5f;
+            charge += 5f;
         }
-
-        StartCoroutine(Swing(Charge));
     }
 
     private IEnumerator Swing(float Charge)
     {
-        yield return null;
+        yield return new WaitForSeconds(5f);
+
+        score += charge;
+
+        Debug.Log("Score");
     }
 }
