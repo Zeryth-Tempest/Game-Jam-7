@@ -1,16 +1,25 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class CarnivalHammer : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private float Charge = 0f;
+
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         
+    }
+
+    private void Press(InputValue value)
+    {
+        if (value.isPressed)
+        {
+            Charge += 5f;
+        }
     }
 }
