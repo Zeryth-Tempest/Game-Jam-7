@@ -17,10 +17,10 @@ public class CarnivalHammer : MonoBehaviour
     {
         if (charge >= 0f)
         {
-            charge -= 0.05f;
+            charge -= 0.06f;
         }
 
-        Debug.Log("Charge");
+        Debug.Log(charge);
     }
 
     private void OnButtonOne(InputValue value)
@@ -37,6 +37,6 @@ public class CarnivalHammer : MonoBehaviour
 
         score += charge;
 
-        Debug.Log("Score");
+        Debug.Log(score);
     }
 }
