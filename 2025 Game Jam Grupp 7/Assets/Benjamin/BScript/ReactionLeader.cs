@@ -1,16 +1,20 @@
+using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ReactionLeader : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public int ChosenDirection;
+
+    private void Start()
     {
-        
+        StartCoroutine(Choose());
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator Choose()
     {
-        
+        yield return new WaitForSeconds(Random.Range(1f, 3f));
+        ChosenDirection = Random.Range(1, 5);
+        Debug.Log(ChosenDirection);
     }
 }
