@@ -45,16 +45,8 @@ public class CarnivalHammer : MonoBehaviour
 
             score += charge;
 
-            if (score <= maxScore)
-            {
-                hasEnded = true;
-                ReportResult();
-            }
-            else if (score > maxScore)
-            {
-                hasEnded = true;
-                ReportResult();
-            }
+            hasEnded = true;
+            ReportResult();
         }
     }
 
